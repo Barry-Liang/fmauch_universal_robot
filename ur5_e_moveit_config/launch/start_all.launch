@@ -1,0 +1,11 @@
+<launch>
+  <include file="$(find ur5_e_moveit_config)/launch/demo.launch">
+    <arg name="limited" value="true"/>
+  </include>
+  <node name="camera_node" pkg="camera" type="camera_node" output="screen"/>
+  <node name="kalman_real" pkg="filter" type="kalman_real.py" output="screen"/>
+  <node name="myworkcell_node" pkg="robot_proj" type="myworkcell_node" output="screen">
+    <param name="base_frame" value="world"/>
+  </node>
+</launch>
+   

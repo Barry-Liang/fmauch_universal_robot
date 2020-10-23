@@ -1,4 +1,14 @@
 # Universal Robot
+------
+### My Universal Robot Package:
+Fixed some bugs forked from famuch.
+Everything works well except that the urdf files cannot be used to configure ikfast plug-in.
+If you want to configure the ikfast, try Barry-Liang/universal_robot repository.
+The Barry-Liang/universal_robot repository is forked directly from ros-industrial. But it has some bugs in my melodic (ubuntu18.04) enviroement. I will keep modifing it to make it avilable.
+
+
+
+-----
 
 [![Build Status](http://build.ros.org/job/Kdev__universal_robot__ubuntu_xenial_amd64/badge/icon)](http://build.ros.org/job/Kdev__universal_robot__ubuntu_xenial_amd64)
 [![license - apache 2.0](https://img.shields.io/:license-Apache%202.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)

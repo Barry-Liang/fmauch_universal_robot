@@ -1,0 +1,6 @@
+<launch>
+  <node name="juggling_node" pkg="robot_proj" type="myworkcell_node" output="screen">
+    <param name="base_frame" value="world"/>
+  </node>
+
+</launch>
