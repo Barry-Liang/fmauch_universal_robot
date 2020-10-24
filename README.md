@@ -46,6 +46,25 @@ Copied from a early version of [UniversalRobots' s offical driver package](githu
 
 
 # Universal Robot
+------
+### My Universal Robot Package:
+Fixed some bugs forked from fmauch.
+Everything works well except that the urdf files cannot be used to configure ikfast plugin.
+If you want to configure the ikfast, try Barry-Liang/universal_robot repository.
+The Barry-Liang/universal_robot repository is forked directly from ros-industrial. But it has some bugs in my melodic (ubuntu18.04) enviroement. I will keep modifing it to make it avilable.
+
+
+To use it, just git clone this repository into your workspace.
+You should also install the track-ik plug-in for ur5e robot. Since I only use ur5e robot, I modified the kenimetics file in ur5_e_moveit_config to follow track-ik.
+
+```bash
+sudo apt-get install ros-melodic-track-ik-kinematics-plugin
+```
+
+Replace kinematics_solver: kdl_kinematics_plugin/KDLKinematicsPlugin (or similar) with kinematics_solver: trac_ik_kinematics_plugin/TRAC_IKKinematicsPlugin
+
+
+-----
 
 [![Build Status](http://build.ros.org/job/Kdev__universal_robot__ubuntu_xenial_amd64/badge/icon)](http://build.ros.org/job/Kdev__universal_robot__ubuntu_xenial_amd64)
 [![license - apache 2.0](https://img.shields.io/:license-Apache%202.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)

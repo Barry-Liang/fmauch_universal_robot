@@ -1,0 +1,5 @@
+<launch>
+ 
+ <node name="fake_pingpong_publisher_node" pkg="fake_pingpong_publisher" type="fake_pingpong_publisher_node" output="screen"/>
+ 
+</launch>

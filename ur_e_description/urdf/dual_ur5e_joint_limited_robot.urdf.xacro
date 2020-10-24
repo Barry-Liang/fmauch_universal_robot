@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro"
+       name="dual_ur5e" >
+
+  <!-- common stuff -->
+  <xacro:include filename="$(find ur_e_description)/urdf/common.gazebo.xacro" />
+
+  <!-- left ur5e -->
+  <xacro:include filename="$(find ur_e_description)/urdf/left_ur5e.urdf.xacro" />
+ <!-- right ur5e -->
+  <xacro:include filename="$(find ur_e_description)/urdf/right_ur5e.urdf.xacro" />
+  <!-- arm -->
+  <xacro:arg name="kinematics_config" default="$(find ur_e_description)/config/ur5e_default.yaml"/>
+  <xacro:left_ur5e_robot prefix="" joint_limited="true"
+    shoulder_pan_lower_limit="${-pi}" shoulder_pan_upper_limit="${pi}"
+    shoulder_lift_lower_limit="${-pi}" shoulder_lift_upper_limit="${pi}"
+    elbow_joint_lower_limit="${-pi}" elbow_joint_upper_limit="${pi}"
+    wrist_1_lower_limit="${-pi}" wrist_1_upper_limit="${pi}"
+    wrist_2_lower_limit="${-pi}" wrist_2_upper_limit="${pi}"
+    wrist_3_lower_limit="${-pi}" wrist_3_upper_limit="${pi}"
+    kinematics_file="${load_yaml('$(arg kinematics_config)')}"
+  />
+<xacro:right_ur5e_robot prefix="" joint_limited="true"
+    shoulder_pan_lower_limit="${-pi}" shoulder_pan_upper_limit="${pi}"
+    shoulder_lift_lower_limit="${-pi}" shoulder_lift_upper_limit="${pi}"
+    elbow_joint_lower_limit="${-pi}" elbow_joint_upper_limit="${pi}"
+    wrist_1_lower_limit="${-pi}" wrist_1_upper_limit="${pi}"
+    wrist_2_lower_limit="${-pi}" wrist_2_upper_limit="${pi}"
+    wrist_3_lower_limit="${-pi}" wrist_3_upper_limit="${pi}"
+    kinematics_file="${load_yaml('$(arg kinematics_config)')}"
+  />
+
+   <link name="world" />
+
+ <!-- <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "base_link" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint>  -->
+
+   <link name="left_table">
+    <visual>
+      <geometry>
+        <box size="0.72 1.12 0.217"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.72 1.12 0.217"/>
+      </geometry>
+    </collision>
+  </link>
+
+<link name="right_table">
+    <visual>
+      <geometry>
+        <box size="0.72 1.12 0.217"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.72 1.12 0.217"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="camera_frame"/>
+
+ 
+
+  <joint name="world_to_left_table" type="fixed">
+    <parent link="world"/>
+    <child link="left_table"/>
+    <origin xyz="0 0 0.108" rpy="0 0 0"/>
+  </joint>
+<joint name="world_to_right_table" type="fixed">
+    <parent link="world"/>
+    <child link="right_table"/>
+    <origin xyz="0 0.8 0.108" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="world_to_camera" type="fixed">
+    <parent link="world"/>
+    <child link="camera_frame"/>
+    <origin xyz="-0.25 -0.5 1.25" rpy="0 3.14159 0"/>
+  </joint>
+
+  <joint name="table_to_left_robot" type="fixed">
+    <parent link="left_table"/>
+    <child link="left_base_link"/>
+    <origin xyz="0 0 0.108" rpy="0 0 0"/>
+ </joint>
+  <joint name="table_to_right_robot" type="fixed">
+    <parent link="right_table"/>
+    <child link="right_base_link"/>
+    <origin xyz="0 0 0.108" rpy="0 0 0"/>
+ </joint>
+</robot>

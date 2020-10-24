@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="end_effector">
+  <link
+    name="end_effector">
+    <inertial>
+      <origin
+        xyz="0.0021174 -1.32020000001506E-07 -0.0246"
+        rpy="0 0 0" />
+      <mass
+        value="0.066319" />
+      <inertia
+        ixx="0.000116"
+        ixy="1.57629999999094E-10"
+        ixz="1.48E-05"
+        iyy="0.00012133"
+        iyz="7.19329999994633E-10"
+        izz="3.3681E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://end_effector/meshes/end_effector_2.0.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+        <texture
+          filename="package://end_effector/textures/" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://end_effector/meshes/end_effector_2.0.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>
